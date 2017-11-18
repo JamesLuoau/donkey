@@ -82,6 +82,9 @@ class KerasCategorical(KerasPilot):
         #print('throttle', throttle)
         #angle_certainty = max(angle_binned[0])
         angle_unbinned = dk.utils.linear_unbin(angle_binned)
+
+        print('angle_unbinned {}, throttle {}'.format(angle_unbinned, throttle))
+
         return angle_unbinned, throttle[0][0]
     
     
