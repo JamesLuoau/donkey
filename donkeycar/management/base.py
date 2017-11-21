@@ -245,6 +245,7 @@ class Sim(BaseCommand):
         import socketio
         from donkeycar.parts.simulation import SteeringServer
         from donkeycar.parts.keras import KerasCategorical, KerasLinear
+        from donkeycar.parts.keras_free import PilotKeras
 
         args, parser = self.parse_args(args)
 
@@ -258,6 +259,8 @@ class Sim(BaseCommand):
             kl = KerasCategorical()
         elif args.type == "linear":
             kl = KerasLinear(num_outputs=2)
+        elif args.type == "free":
+            kl = PilotKeras()
         else:
             print("didn't recognice type:", args.type)
             return
